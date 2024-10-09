@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
+  const [page, setPage] = useState(1);
+  const [option, setOption] = useState('0');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2> Page {page} </h2>
+      <div>
+        <button onClick= { () => setPage(Math.max(1, page -1))}> Previous </button>
+        <button onClick= { () => setPage(Math.max(1, page +1))}> Next </button>
+      </div>
+
+      <h3> Selected:{option} </h3>
+      <select onChange={(eve) => setOption(eve.target.value)}>
+        <option value="most popular">most popular</option>
+        <option value="most viewed">most viewed</option>
+        <option value="recent added">recent added</option>
+      </select>
+
     </div>
   );
 }
