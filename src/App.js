@@ -16,11 +16,15 @@ function App() {
           setIssues(data)
         })
       // console.log("page or option changed", page, option)
-  }, [])
+  }, [page, option])
 
   useEffect(() => {
     console.log("current option", option);
   }, [option])
+
+  useEffect(() => {
+    console.log("page loaded");
+  }, [])
 
   return (
     <div className="App">
